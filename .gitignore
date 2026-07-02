@@ -1,0 +1,24 @@
+# Secrets — never commit (contains OPENAI_API_KEY)
+.env
+.env.*
+!.env.example
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+
+# Virtual environment (platform-specific, recreate from requirements.txt)
+.venv/
+
+# Raw runtime logs
+*.log
+
+# Local Claude Code config
+.claude/
+
+# Paper PDFs (not part of the shipped demo)
+*.pdf
+
+# Runtime artifacts — created on demand by live analysis, never commit
+article_cache/
+results/live_runs/
