@@ -18,6 +18,8 @@ article-only, search-only, and media-background-check baselines on most metrics
 — achieving the lowest bias and factuality MAE, perfect failed-fact-check
 detection, and the lowest factual error rate, at roughly **$0.054 per outlet**.
 
+All the figures, tables, and results will be released later with the paper, the link will be added here.
+
 ---
 
 ## Quick start
