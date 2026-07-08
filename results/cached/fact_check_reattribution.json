@@ -1,0 +1,362 @@
+{
+  "The Lallantop": {
+    "domain": "thelallantop.com",
+    "findings": [
+      {
+        "summary": "Social-media claim that The Lallantop deliberately omitted naming accused in a UP minor-rape report to hide that they were Muslim; the fact-check examines whether the outlet concealed the accused's religion.",
+        "verdict": "False",
+        "url": "https://www.altnews.in/fact-check-false-communal-claim-of-father-uncle-grandfather-accused-of-raping-minor-are-muslim/",
+        "source_site": "altnews.in",
+        "claim_source": "about_outlet",
+        "published_by_outlet": false,
+        "claim_source_domain": null,
+        "attribution_confidence": 0.85,
+        "attribution_reasoning": "The allegation is a social-media claim that The Lallantop concealed the accused's religion (a claim about the outlet); Alt News treats it as a false/misattributed social-media post and there is no evidence thelallantop.com itself published the claim.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 0,
+    "about_outlet_count": 1,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "24Jours.com": {
+    "domain": "24jours.com",
+    "findings": [
+      {
+        "summary": "Investigation identified 24jours.com as one of several sites regularly flagged as spreading disinformation (e.g., health disinformation and copy-pasting content from Sputnik/RT) and as part of an Africa-based network that built fake media outlets and clickbait sites for profit.",
+        "verdict": "Mostly False",
+        "url": "https://www.disinfo.eu/publications/from-health-disinformation-to-copy-pasting-articles-from-sputnik-and-rt-how-an-africa-based-network-built-fake-media-outlets-and-clickbait-websites-for-profit",
+        "source_site": "disinfo.eu",
+        "claim_source": "third_party",
+        "published_by_outlet": false,
+        "claim_source_domain": "disinfo.eu",
+        "attribution_confidence": 0.9,
+        "attribution_reasoning": "The referenced investigation and article identifying sites (including 24jours.com) is hosted on disinfo.eu (the provided URL), indicating a third-party publication rather than content published by 24Jours.com.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 0,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "RushLimbaugh.com": {
+    "domain": "rushlimbaugh.com",
+    "findings": [
+      {
+        "summary": "Rush Limbaugh (RushLimbaugh.com) made a claim about George Washington's religious views in a post titled 'A Teacher on the Smallest Minority' (Apr 8, 2009).",
+        "verdict": "False",
+        "url": "https://www.politifact.com/factchecks/2009/apr/10/rush-limbaugh/Rush-limbaugh-washington-religion/",
+        "source_site": "politifact.com",
+        "claim_source": "published_by_outlet",
+        "published_by_outlet": true,
+        "claim_source_domain": "rushlimbaugh.com",
+        "attribution_confidence": 0.9,
+        "attribution_reasoning": "PolitiFact cites a specific Apr 8, 2009 post titled 'A Teacher on the Smallest Minority' by Rush Limbaugh, indicating the statement originated in a RushLimbaugh.com publication.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 1,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "World Meteorological Organization": {
+    "domain": "public.wmo.int",
+    "findings": [
+      {
+        "summary": "A social media video was claimed to show 'geoengineering' happening as Hurricane Milton approached Florida; the video actually was uploaded in 2021 and does not show geoengineering related to Hurricane Milton.",
+        "verdict": "False",
+        "url": "https://www.politifact.com/factchecks/2024/oct/08/instagram-posts/video-doesnt-prove-hurricane-milton-was-geoenginee/",
+        "source_site": "politifact.com",
+        "claim_source": "third_party",
+        "published_by_outlet": false,
+        "claim_source_domain": "instagram.com",
+        "attribution_confidence": 0.9,
+        "attribution_reasoning": "PolitiFact identifies the claim as coming from Instagram posts (a social‑media user/video upload) and the World Meteorological Organization is not involved or cited, so the claim was published by a third party on instagram.com.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 0,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "Irish Star": {
+    "domain": "irishstar.com",
+    "findings": [
+      {
+        "summary": "Quote attributed to White House Press Secretary Karoline Leavitt — 'Jesus didn't have electricity' — which circulated online; the claim gained traction after Irish Star published an article treating the quote as factual.",
+        "verdict": "False",
+        "url": "https://www.snopes.com/fact-check/leavitt-jesus-electricity/",
+        "source_site": "snopes.com",
+        "claim_source": "published_by_outlet",
+        "published_by_outlet": true,
+        "claim_source_domain": "irishstar.com",
+        "attribution_confidence": 0.85,
+        "attribution_reasoning": "The Snopes fact-check states the quote gained traction after the Irish Star published an article treating the quote as factual, indicating the outlet itself published the claim.",
+        "is_failed": true
+      },
+      {
+        "summary": "Same claim: the 'Jesus didn't have electricity' quote falsely attributed to Karoline Leavitt; Irish Star reported the rumor as if true.",
+        "verdict": "False",
+        "url": "https://www.snopes.com/fact-check/jesus-electricity-quote-karoline-leavitt/",
+        "source_site": "snopes.com",
+        "claim_source": "published_by_outlet",
+        "published_by_outlet": true,
+        "claim_source_domain": "irishstar.com",
+        "attribution_confidence": 0.85,
+        "attribution_reasoning": "Snopes explicitly notes that Irish Star reported the rumor as if true, which indicates the claim was published by the outlet rather than merely being about or citing it.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 2,
+    "failed_published_by_outlet": 2,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "Best News Here": {
+    "domain": "bestnewshere.com",
+    "findings": [
+      {
+        "summary": "Claim that George W. Bush was hanged at Guantanamo Bay (article republished on BestNewsHere.com).",
+        "verdict": "False",
+        "url": "https://www.snopes.com/fact-check/george-w-bush-guantanamo-bay/",
+        "source_site": "snopes.com",
+        "claim_source": "published_by_outlet",
+        "published_by_outlet": true,
+        "claim_source_domain": "bestnewshere.com",
+        "attribution_confidence": 0.9,
+        "attribution_reasoning": "Snopes documents that the false story about George W. Bush being hanged at Guantanamo was republished on BestNewsHere, indicating the outlet itself published the claim.",
+        "is_failed": true
+      },
+      {
+        "summary": "Claim (published by bestnewshere.com) that the U.S. Supreme Court ruled the COVID pathogen is not a vaccine / that COVID 'vaccine' is unsafe.",
+        "verdict": "False",
+        "url": "https://leadstories.com/hoax-alert/2021/09/fact-check-the-supreme-court-did-not-rule-that-the-covid-vaccine-is-unsafe.html",
+        "source_site": "leadstories.com",
+        "claim_source": "published_by_outlet",
+        "published_by_outlet": true,
+        "claim_source_domain": "bestnewshere.com",
+        "attribution_confidence": 0.9,
+        "attribution_reasoning": "LeadStories identifies the false Supreme Court/COVID vaccine claim as coming from an article published on BestNewsHere, so the outlet itself published the claim.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 2,
+    "failed_published_by_outlet": 2,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "Gaia": {
+    "domain": "gaia.com",
+    "findings": [
+      {
+        "summary": "Claim that researchers found a mummified, three-fingered 'alien' (viral story promoted on Gaia.com/Gaiam TV). Snopes examined the viral images and reporting and noted Gaia.com's history of promoting spurious pseudoscience.",
+        "verdict": "False",
+        "url": "https://www.snopes.com/fact-check/alien-mummy-peru/",
+        "source_site": "snopes.com",
+        "claim_source": "published_by_outlet",
+        "published_by_outlet": true,
+        "claim_source_domain": "gaia.com",
+        "attribution_confidence": 0.75,
+        "attribution_reasoning": "Snopes specifically notes the viral 'three-fingered alien' story was promoted on Gaia.com/Gaiam TV, indicating the outlet itself published or promoted the claim; confidence is moderate because attribution comes via the fact-check rather than primary archival capture of the Gaia page.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 1,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "Daily Kos": {
+    "domain": "dailykos.com",
+    "findings": [
+      {
+        "summary": "Daily Kos founder Markos Moulitsas said (on TV) that Turkey is an Arab country; the statement was scrutinized and he later admitted it was a slip-up.",
+        "verdict": "False",
+        "url": "https://www.politifact.com/factchecks/2010/jun/06/markos-moulitsas/daily-kos-founder-admits-slip-calling-turkey-arab-/",
+        "source_site": "politifact.com",
+        "claim_source": "third_party",
+        "published_by_outlet": false,
+        "claim_source_domain": null,
+        "attribution_confidence": 0.8,
+        "attribution_reasoning": "The claim describes a TV statement by Daily Kos founder Markos Moulitsas (reported and questioned by PolitiFact) rather than a claim published by Daily Kos itself, but the original broadcaster/site is not identified in the evidence provided.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 0,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "ABP Live": {
+    "domain": "news.abplive.com",
+    "findings": [
+      {
+        "summary": "A viral graphic purportedly from ABP Live claiming 'why do Hindu girls die for Muslim boys' — the graphic circulated as ABP Live content.",
+        "verdict": "False",
+        "url": "https://dfrac.org/en/2024/11/13/fact-check-viral-abp-live-graphic-claiming-hindu-girls-die-for-muslim-boys-is-fake-and-ai-generated/",
+        "source_site": "dfrac.org",
+        "claim_source": "about_outlet",
+        "published_by_outlet": false,
+        "claim_source_domain": null,
+        "attribution_confidence": 0.95,
+        "attribution_reasoning": "The dfrac fact-check states the graphic was fake and AI-generated and attributes it as a hoax purportedly from ABP Live, with no evidence ABP Live published it.",
+        "is_failed": true
+      },
+      {
+        "summary": "A viral 'ABP–CVoter' opinion-poll infographic for the Andhra Pradesh elections claimed to show projections from ABP Live and CVoter.",
+        "verdict": "False",
+        "url": "https://newschecker.in/fact-check/fake-abp-cvoter-opinion-poll-for-andhra-pradesh-elections-goes-viral",
+        "source_site": "newschecker.in",
+        "claim_source": "about_outlet",
+        "published_by_outlet": false,
+        "claim_source_domain": null,
+        "attribution_confidence": 0.95,
+        "attribution_reasoning": "The Newschecker investigation found the ABP–CVoter poll infographic to be fake and falsely attributed to ABP Live/CVoter, with no indication the outlet published it.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 2,
+    "failed_published_by_outlet": 0,
+    "about_outlet_count": 2,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "UncoverDC": {
+    "domain": "uncoverdc.com",
+    "findings": [
+      {
+        "summary": "Scam-Detector's review gives uncoverdc.com a very low trust score and states the site is not labeled as safe (flagging it as high-risk/scam-like).",
+        "verdict": "Misleading",
+        "url": "https://www.scam-detector.com/validator/uncoverdc-com-review/",
+        "source_site": "scam-detector.com",
+        "claim_source": "third_party",
+        "published_by_outlet": false,
+        "claim_source_domain": "scam-detector.com",
+        "attribution_confidence": 0.95,
+        "attribution_reasoning": "The statement is a characterization of Scam-Detector's review found on the Scam-Detector validator page (scam-detector.com), i.e., a third-party evaluation rather than content published by UncoverDC.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 0,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "Alternative Daily": {
+    "domain": "thealternativedaily.com",
+    "findings": [
+      {
+        "summary": "An alternative health website published a post claiming COVID-19 vaccines cause serious side effects (including claims linking vaccines to autism).",
+        "verdict": "False",
+        "url": "https://www.politifact.com/factchecks/2020/dec/09/blog-posting/alternative-health-website-spreads-false-claim-abo/",
+        "source_site": "politifact.com",
+        "claim_source": "third_party",
+        "published_by_outlet": false,
+        "claim_source_domain": "greenmedinfo.com",
+        "attribution_confidence": 0.95,
+        "attribution_reasoning": "PolitiFact names GreenMedInfo.com as the site that published the false article about COVID-19 vaccine side effects; there is no evidence the claim was published by Alternative Daily.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 0,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "FreedomProject Media": {
+    "domain": "freedomproject.com",
+    "findings": [
+      {
+        "summary": "Claim that pedophilia was being taught as a 'sexual orientation' in (California) schools; FreedomProject distributed/republished the claim.",
+        "verdict": "False",
+        "url": "https://leadstories.com/hoax-alert/2019/12/fake-news-pedophila-not-taught-as-sexual-orientation-in-california-schools.html",
+        "source_site": "leadstories.com",
+        "claim_source": "published_by_outlet",
+        "published_by_outlet": true,
+        "claim_source_domain": "freedomproject.com",
+        "attribution_confidence": 0.7,
+        "attribution_reasoning": "The Lead Stories fact-check explicitly identifies FreedomProject as having distributed/republished the false claim that pedophilia was being taught as a sexual orientation in California schools, indicating the outlet itself published it.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 1,
+    "about_outlet_count": 0,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "Prntly": {
+    "domain": "prntly.com",
+    "findings": [
+      {
+        "summary": "Post (screenshot from Prntly.com) said President Barack Obama 'waited six months to call swine flu an emergency after thousands died.'",
+        "verdict": "False",
+        "url": "https://www.politifact.com/factchecks/2020/mar/04/facebook-posts/president-obama-declared-h1n1-public-health-emerge/",
+        "source_site": "politifact.com",
+        "claim_source": "about_outlet",
+        "published_by_outlet": false,
+        "claim_source_domain": null,
+        "attribution_confidence": 0.8,
+        "attribution_reasoning": "The fact-check describes a circulating screenshot that purported to be from Prntly but the claim was a false attribution/hoax rather than an article actually published on prntly.com.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 1,
+    "failed_published_by_outlet": 0,
+    "about_outlet_count": 1,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "The World from PRX": {
+    "domain": "theworld.org",
+    "findings": [
+      {
+        "summary": "A statue of Christ in India was 'dripping holy water' (reported by TheWorldfromPRX); Snopes found the liquid was from blocked drainage/toilet plumbing, not a miracle.",
+        "verdict": "False",
+        "url": "https://www.snopes.com/fact-check/india-christ-statue-toilet/",
+        "source_site": "snopes.com",
+        "claim_source": "published_by_outlet",
+        "published_by_outlet": true,
+        "claim_source_domain": "theworld.org",
+        "attribution_confidence": 0.75,
+        "attribution_reasoning": "Snopes’ sources list and link to a 2013 The World (theworld.org) story/interview about Sanal Edamaruku investigating the Mumbai statue, supporting that The World published coverage of the incident.",
+        "is_failed": true
+      },
+      {
+        "summary": "Cory Booker’s marathon Senate speech was described as a filibuster (per TheWorldfromPRX); Snopes found he did set a record for longest speech but it was not a filibuster.",
+        "verdict": "False",
+        "url": "https://www.snopes.com/fact-check/cory-booker-filibuster-senate/",
+        "source_site": "snopes.com",
+        "claim_source": "about_outlet",
+        "published_by_outlet": false,
+        "claim_source_domain": null,
+        "attribution_confidence": 0.85,
+        "attribution_reasoning": "Snopes provides no evidence that The World from PRX published the assertion that Booker's speech was a filibuster (the cited The World link is background on Thurmond), so the claim appears to be a false attribution to the outlet.",
+        "is_failed": true
+      }
+    ],
+    "failed_now": 2,
+    "failed_published_by_outlet": 1,
+    "about_outlet_count": 1,
+    "model": "gpt-5-mini",
+    "fetch_pages": true
+  },
+  "_meta": {
+    "updated_unix": 1780772924,
+    "source_jsonl": "results/cached/gpt-5-mini-2025-08-07_system.jsonl"
+  }
+}

@@ -1,0 +1,2515 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "description": "Comprehensive Question Bank for Media Ideology Detection",
+    "dimensions": [
+      {
+        "name": "Economic System",
+        "weight": 0.35,
+        "range": [-10, 10],
+        "description": "Evaluates economic ideology from communism (-10) to radical laissez-faire capitalism (+10)"
+      },
+      {
+        "name": "Social Values",
+        "weight": 0.35,
+        "range": [-10, 10],
+        "description": "Measures stance from strong progressive liberalism (-10) to strong traditional conservatism (+10)"
+      }
+    ],
+    "scoring_guide": {
+      "economic": {
+        "-10": "Communism",
+        "-7.5": "Socialism",
+        "-5": "Democratic Socialism",
+        "-2.5": "Regulated Market Economy",
+        "0": "Centrism",
+        "2.5": "Moderately Regulated Capitalism",
+        "5": "Classical Liberalism",
+        "7.5": "Libertarianism",
+        "10": "Radical Laissez-Faire Capitalism"
+      },
+      "social": {
+        "-10": "Strong Progressive Liberalism",
+        "-7.5": "Progressive Liberalism",
+        "-5": "Moderate Progressive Liberalism",
+        "-2.5": "Mild Progressive Liberalism",
+        "0": "Balanced/Centrist",
+        "2.5": "Mild Conservatism",
+        "5": "Moderate Conservatism",
+        "7.5": "Traditional Conservatism",
+        "10": "Strong Traditional Conservatism"
+      }
+    }
+  },
+  "economic_system": {
+    "topics": {
+      "Government_Ownership_and_Industry_Control": {
+        "preliminary_check": {
+          "question": "Does the article discuss government ownership of industries, nationalization, or public vs. private enterprise?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "left_leaning": [
+            {
+              "id": "ECO_GOV_L1",
+              "question": "Does the article advocate for complete government ownership of all major industries (manufacturing, energy, transportation, banking) with elimination of private enterprise?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "ECO_GOV_L2",
+              "references": [
+                {
+                  "source": "Marx, K. & Engels, F. (1848). The Communist Manifesto",
+                  "concept": "Abolition of private property and centralized means of production"
+                },
+                {
+                  "source": "Lenin, V.I. (1917). The State and Revolution",
+                  "concept": "State ownership of means of production"
+                }
+              ]
+            },
+            {
+              "id": "ECO_GOV_L2",
+              "question": "Does the article support government ownership of key strategic industries (utilities, healthcare, transportation) while allowing limited private enterprise in non-essential sectors?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "ECO_GOV_L3",
+              "references": [
+                {
+                  "source": "Crosland, A. (1956). The Future of Socialism",
+                  "concept": "Mixed economy with significant public ownership"
+                },
+                {
+                  "source": "Harrington, M. (1962). The Other America",
+                  "concept": "Social ownership of commanding heights of economy"
+                }
+              ]
+            },
+            {
+              "id": "ECO_GOV_L3",
+              "question": "Does the article advocate for public options or government-run alternatives in essential services (healthcare, education, banking) alongside private providers?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "ECO_GOV_L4",
+              "references": [
+                {
+                  "source": "Sanders, B. (2016). Our Revolution",
+                  "concept": "Democratic socialist public options"
+                },
+                {
+                  "source": "Piketty, T. (2014). Capital in the Twenty-First Century",
+                  "concept": "Progressive taxation and public investment"
+                }
+              ]
+            },
+            {
+              "id": "ECO_GOV_L4",
+              "question": "Does the article support strategic government investment and public-private partnerships to address market failures while maintaining predominantly private ownership?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Mazzucato, M. (2013). The Entrepreneurial State",
+                  "concept": "Government as market shaper and risk-taker"
+                },
+                {
+                  "source": "Stiglitz, J. (2012). The Price of Inequality",
+                  "concept": "Balanced intervention for market correction"
+                }
+              ]
+            }
+          ],
+          "right_leaning": [
+            {
+              "id": "ECO_GOV_R1",
+              "question": "Does the article support privatization of some government services while maintaining public oversight and regulation?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Osborne, D. & Gaebler, T. (1992). Reinventing Government",
+                  "concept": "Market-oriented government reform"
+                }
+              ]
+            },
+            {
+              "id": "ECO_GOV_R2",
+              "question": "Does the article advocate for significant privatization of government services and industries, arguing private sector is inherently more efficient?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "ECO_GOV_R1",
+              "references": [
+                {
+                  "source": "Smith, A. (1776). The Wealth of Nations",
+                  "concept": "Private enterprise and invisible hand"
+                },
+                {
+                  "source": "Buchanan, J. & Tullock, G. (1962). The Calculus of Consent",
+                  "concept": "Public choice theory and government inefficiency"
+                }
+              ]
+            },
+            {
+              "id": "ECO_GOV_R3",
+              "question": "Does the article argue for near-complete privatization, including essential services like prisons, military functions, or social security?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "ECO_GOV_R2",
+              "references": [
+                {
+                  "source": "Nozick, R. (1974). Anarchy, State, and Utopia",
+                  "concept": "Minimal state and private provision"
+                },
+                {
+                  "source": "Rothbard, M. (1973). For a New Liberty",
+                  "concept": "Libertarian privatization"
+                }
+              ]
+            },
+            {
+              "id": "ECO_GOV_R4",
+              "question": "Does the article advocate for complete elimination of government ownership and provision of all services, including defense and courts, in favor of private alternatives?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "ECO_GOV_R3",
+              "references": [
+                {
+                  "source": "Rothbard, M. (1982). The Ethics of Liberty",
+                  "concept": "Anarcho-capitalism"
+                },
+                {
+                  "source": "Hoppe, H.H. (2001). Democracy: The God That Failed",
+                  "concept": "Private law society"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "ECO_GOV_C",
+            "question": "Does the article present a balanced view, supporting neither significant nationalization nor extensive privatization, favoring mixed economy pragmatism?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Keynes, J.M. (1936). The General Theory of Employment, Interest and Money",
+                "concept": "Mixed economy with counter-cyclical policy"
+              }
+            ]
+          }
+        }
+      },
+      "Taxation_Policy": {
+        "preliminary_check": {
+          "question": "Does the article discuss taxation policies, tax rates, wealth taxes, or tax reform?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "left_leaning": [
+            {
+              "id": "ECO_TAX_L1",
+              "question": "Does the article advocate for extreme wealth redistribution through confiscatory taxation (90%+ marginal rates) or complete elimination of private wealth accumulation?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "ECO_TAX_L2",
+              "references": [
+                {
+                  "source": "Marx, K. (1875). Critique of the Gotha Programme",
+                  "concept": "From each according to ability, to each according to needs"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TAX_L2",
+              "question": "Does the article support highly progressive taxation with wealth taxes, significantly higher corporate taxes, and closing of tax loopholes for the wealthy?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "ECO_TAX_L3",
+              "references": [
+                {
+                  "source": "Saez, E. & Zucman, G. (2019). The Triumph of Injustice",
+                  "concept": "Wealth taxation and progressive tax reform"
+                },
+                {
+                  "source": "Piketty, T. (2020). Capital and Ideology",
+                  "concept": "Progressive wealth taxation"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TAX_L3",
+              "question": "Does the article advocate for moderately higher taxes on high incomes and corporations to fund expanded social programs?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "ECO_TAX_L4",
+              "references": [
+                {
+                  "source": "Reich, R. (2015). Saving Capitalism",
+                  "concept": "Tax reform for middle class"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TAX_L4",
+              "question": "Does the article support maintaining current progressive taxation with modest increases to fund specific programs or reduce deficits?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Krugman, P. (2012). End This Depression Now!",
+                  "concept": "Pragmatic progressive taxation"
+                }
+              ]
+            }
+          ],
+          "right_leaning": [
+            {
+              "id": "ECO_TAX_R1",
+              "question": "Does the article support modest tax cuts or simplification while maintaining progressive structure?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Mankiw, N.G. (2010). Spreading the Wealth Around",
+                  "concept": "Efficient taxation principles"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TAX_R2",
+              "question": "Does the article advocate for significant tax cuts, flatter tax rates, and reduced corporate taxation to stimulate growth?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "ECO_TAX_R1",
+              "references": [
+                {
+                  "source": "Laffer, A. (1974). The Laffer Curve",
+                  "concept": "Supply-side economics"
+                },
+                {
+                  "source": "Friedman, M. (1962). Capitalism and Freedom",
+                  "concept": "Limited taxation and individual liberty"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TAX_R3",
+              "question": "Does the article support flat tax or consumption-based taxation, arguing progressive taxes distort incentives and punish success?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "ECO_TAX_R2",
+              "references": [
+                {
+                  "source": "Hall, R. & Rabushka, A. (1985). The Flat Tax",
+                  "concept": "Single-rate taxation"
+                },
+                {
+                  "source": "Hayek, F.A. (1960). The Constitution of Liberty",
+                  "concept": "Opposition to progressive taxation"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TAX_R4",
+              "question": "Does the article advocate for elimination of income tax entirely, or argue that taxation itself is a form of theft?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "ECO_TAX_R3",
+              "references": [
+                {
+                  "source": "Nozick, R. (1974). Anarchy, State, and Utopia",
+                  "concept": "Taxation as forced labor"
+                },
+                {
+                  "source": "Rothbard, M. (1982). The Ethics of Liberty",
+                  "concept": "Voluntary taxation only"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "ECO_TAX_C",
+            "question": "Does the article present a balanced view on taxation, neither advocating for significant increases nor cuts, focusing on efficiency and fairness?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Mirrlees, J. (2011). Tax by Design: The Mirrlees Review",
+                "concept": "Optimal tax theory"
+              }
+            ]
+          }
+        }
+      },
+      "Labor_Rights_and_Unions": {
+        "preliminary_check": {
+          "question": "Does the article discuss labor rights, unions, worker protections, minimum wage, or employment regulations?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "left_leaning": [
+            {
+              "id": "ECO_LAB_L1",
+              "question": "Does the article advocate for worker ownership of all means of production, mandatory worker councils, or elimination of the employer-employee relationship?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "ECO_LAB_L2",
+              "references": [
+                {
+                  "source": "Marx, K. (1867). Das Kapital",
+                  "concept": "Worker control of production"
+                },
+                {
+                  "source": "Wolff, R. (2012). Democracy at Work",
+                  "concept": "Worker self-directed enterprises"
+                }
+              ]
+            },
+            {
+              "id": "ECO_LAB_L2",
+              "question": "Does the article strongly support mandatory union membership, sector-wide collective bargaining, and significant expansion of worker rights?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "ECO_LAB_L3",
+              "references": [
+                {
+                  "source": "Freeman, R. & Medoff, J. (1984). What Do Unions Do?",
+                  "concept": "Union benefits for workers and economy"
+                }
+              ]
+            },
+            {
+              "id": "ECO_LAB_L3",
+              "question": "Does the article support strengthening unions, raising minimum wage significantly ($15+/hour or living wage), and expanding worker protections?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "ECO_LAB_L4",
+              "references": [
+                {
+                  "source": "Card, D. & Krueger, A. (1995). Myth and Measurement",
+                  "concept": "Minimum wage employment effects"
+                }
+              ]
+            },
+            {
+              "id": "ECO_LAB_L4",
+              "question": "Does the article support moderate increases in minimum wage and maintaining current labor protections?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Dube, A. (2019). Minimum Wages and the Distribution of Family Incomes",
+                  "concept": "Evidence-based minimum wage policy"
+                }
+              ]
+            }
+          ],
+          "right_leaning": [
+            {
+              "id": "ECO_LAB_R1",
+              "question": "Does the article support right-to-work laws or modest reforms to reduce union power while maintaining basic worker protections?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Epstein, R. (1983). A Common Law for Labor Relations",
+                  "concept": "Contract-based labor relations"
+                }
+              ]
+            },
+            {
+              "id": "ECO_LAB_R2",
+              "question": "Does the article argue for significant reduction in union power, opposing minimum wage increases as harmful to employment?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "ECO_LAB_R1",
+              "references": [
+                {
+                  "source": "Friedman, M. (1962). Capitalism and Freedom",
+                  "concept": "Union monopoly power criticism"
+                },
+                {
+                  "source": "Neumark, D. & Wascher, W. (2008). Minimum Wages",
+                  "concept": "Negative employment effects"
+                }
+              ]
+            },
+            {
+              "id": "ECO_LAB_R3",
+              "question": "Does the article advocate for elimination of minimum wage and most labor regulations, arguing markets should set wages?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "ECO_LAB_R2",
+              "references": [
+                {
+                  "source": "Hayek, F.A. (1960). The Constitution of Liberty",
+                  "concept": "Market-determined wages"
+                }
+              ]
+            },
+            {
+              "id": "ECO_LAB_R4",
+              "question": "Does the article argue for complete deregulation of labor markets, including elimination of all wage floors, overtime rules, and workplace safety regulations?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "ECO_LAB_R3",
+              "references": [
+                {
+                  "source": "Rothbard, M. (1962). Man, Economy, and State",
+                  "concept": "Pure market labor relations"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "ECO_LAB_C",
+            "question": "Does the article present balanced views on labor, supporting both worker rights and business flexibility?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "OECD Employment Outlook",
+                "concept": "Flexicurity models"
+              }
+            ]
+          }
+        }
+      },
+      "Corporate_Regulation": {
+        "preliminary_check": {
+          "question": "Does the article discuss corporate regulation, antitrust policy, consumer protection, or business oversight?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "left_leaning": [
+            {
+              "id": "ECO_REG_L1",
+              "question": "Does the article advocate for breaking up all large corporations, eliminating corporate personhood, or nationalizing dominant firms?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "ECO_REG_L2",
+              "references": [
+                {
+                  "source": "Klein, N. (2007). The Shock Doctrine",
+                  "concept": "Corporate power critique"
+                }
+              ]
+            },
+            {
+              "id": "ECO_REG_L2",
+              "question": "Does the article support aggressive antitrust enforcement, breaking up tech giants, and heavy regulation of corporate behavior?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "ECO_REG_L3",
+              "references": [
+                {
+                  "source": "Wu, T. (2018). The Curse of Bigness",
+                  "concept": "Neo-Brandeisian antitrust"
+                },
+                {
+                  "source": "Khan, L. (2017). Amazon's Antitrust Paradox",
+                  "concept": "Platform monopoly regulation"
+                }
+              ]
+            },
+            {
+              "id": "ECO_REG_L3",
+              "question": "Does the article support strengthened consumer protections, environmental regulations, and corporate accountability measures?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "ECO_REG_L4",
+              "references": [
+                {
+                  "source": "Warren, E. (2014). A Fighting Chance",
+                  "concept": "Consumer financial protection"
+                }
+              ]
+            },
+            {
+              "id": "ECO_REG_L4",
+              "question": "Does the article support maintaining current regulatory frameworks with targeted enhancements for emerging issues?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Sunstein, C. (2013). Simpler: The Future of Government",
+                  "concept": "Smart regulation"
+                }
+              ]
+            }
+          ],
+          "right_leaning": [
+            {
+              "id": "ECO_REG_R1",
+              "question": "Does the article support modest regulatory reform to reduce compliance burden while maintaining core protections?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Breyer, S. (1982). Regulation and Its Reform",
+                  "concept": "Regulatory efficiency"
+                }
+              ]
+            },
+            {
+              "id": "ECO_REG_R2",
+              "question": "Does the article advocate for significant deregulation, arguing regulations harm innovation and economic growth?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "ECO_REG_R1",
+              "references": [
+                {
+                  "source": "Stigler, G. (1971). The Theory of Economic Regulation",
+                  "concept": "Regulatory capture"
+                }
+              ]
+            },
+            {
+              "id": "ECO_REG_R3",
+              "question": "Does the article argue for near-elimination of corporate regulation, suggesting market forces and litigation are sufficient?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "ECO_REG_R2",
+              "references": [
+                {
+                  "source": "Friedman, M. & Friedman, R. (1980). Free to Choose",
+                  "concept": "Market self-regulation"
+                }
+              ]
+            },
+            {
+              "id": "ECO_REG_R4",
+              "question": "Does the article advocate for complete elimination of all business regulations, including safety, environmental, and consumer protections?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "ECO_REG_R3",
+              "references": [
+                {
+                  "source": "Rothbard, M. (1970). Power and Market",
+                  "concept": "Zero regulation ideal"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "ECO_REG_C",
+            "question": "Does the article present balanced views on regulation, supporting evidence-based approach to both protection and growth?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Sunstein, C. & Thaler, R. (2008). Nudge",
+                "concept": "Libertarian paternalism"
+              }
+            ]
+          }
+        }
+      },
+      "Trade_and_Globalization": {
+        "preliminary_check": {
+          "question": "Does the article discuss international trade, tariffs, free trade agreements, or globalization?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "left_leaning": [
+            {
+              "id": "ECO_TRD_L1",
+              "question": "Does the article advocate for complete state control of international trade, rejection of all free trade agreements, and autarkic economic policy?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "ECO_TRD_L2",
+              "references": [
+                {
+                  "source": "List, F. (1841). The National System of Political Economy",
+                  "concept": "Economic nationalism"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TRD_L2",
+              "question": "Does the article support fair trade over free trade, emphasizing strong labor and environmental standards as conditions for trade agreements?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "ECO_TRD_L3",
+              "references": [
+                {
+                  "source": "Stiglitz, J. (2002). Globalization and Its Discontents",
+                  "concept": "Managed globalization"
+                },
+                {
+                  "source": "Rodrik, D. (2011). The Globalization Paradox",
+                  "concept": "Smart globalization"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TRD_L3",
+              "question": "Does the article support renegotiating trade deals to better protect domestic workers and industries?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "ECO_TRD_L4",
+              "references": [
+                {
+                  "source": "Autor, D. et al. (2016). The China Shock",
+                  "concept": "Trade adjustment costs"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TRD_L4",
+              "question": "Does the article support free trade in principle but call for stronger safety nets for displaced workers?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Krugman, P. (1996). Pop Internationalism",
+                  "concept": "Trade benefits with distribution concerns"
+                }
+              ]
+            }
+          ],
+          "right_leaning": [
+            {
+              "id": "ECO_TRD_R1",
+              "question": "Does the article support free trade agreements with modest protections for sensitive industries?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Bhagwati, J. (2004). In Defense of Globalization",
+                  "concept": "Pragmatic free trade"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TRD_R2",
+              "question": "Does the article strongly advocate for free trade and reduction of tariffs, arguing protectionism harms consumers and growth?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "ECO_TRD_R1",
+              "references": [
+                {
+                  "source": "Smith, A. (1776). The Wealth of Nations",
+                  "concept": "Comparative advantage"
+                },
+                {
+                  "source": "Ricardo, D. (1817). Principles of Political Economy",
+                  "concept": "Free trade benefits"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TRD_R3",
+              "question": "Does the article advocate for unilateral free trade regardless of other countries' policies?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "ECO_TRD_R2",
+              "references": [
+                {
+                  "source": "Friedman, M. (1962). Capitalism and Freedom",
+                  "concept": "Unilateral free trade"
+                }
+              ]
+            },
+            {
+              "id": "ECO_TRD_R4",
+              "question": "Does the article argue for complete elimination of all trade barriers, tariffs, and government involvement in international commerce?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "ECO_TRD_R3",
+              "references": [
+                {
+                  "source": "Mises, L. (1927). Liberalism",
+                  "concept": "Complete free trade"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "ECO_TRD_C",
+            "question": "Does the article present balanced views on trade, recognizing both benefits and costs of globalization?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "WTO Trade Policy Review",
+                "concept": "Rules-based trading system"
+              }
+            ]
+          }
+        }
+      },
+      "Social_Welfare_Programs": {
+        "preliminary_check": {
+          "question": "Does the article discuss social welfare programs, safety nets, entitlements, or poverty alleviation?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "left_leaning": [
+            {
+              "id": "ECO_WEL_L1",
+              "question": "Does the article advocate for universal basic income, guaranteed employment, or comprehensive cradle-to-grave welfare state?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "ECO_WEL_L2",
+              "references": [
+                {
+                  "source": "Van Parijs, P. & Vanderborght, Y. (2017). Basic Income: A Radical Proposal",
+                  "concept": "Universal basic income"
+                },
+                {
+                  "source": "Esping-Andersen, G. (1990). Three Worlds of Welfare Capitalism",
+                  "concept": "Social democratic welfare state"
+                }
+              ]
+            },
+            {
+              "id": "ECO_WEL_L2",
+              "question": "Does the article support significant expansion of welfare programs, including extended unemployment benefits, housing assistance, and childcare subsidies?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "ECO_WEL_L3",
+              "references": [
+                {
+                  "source": "Hacker, J. (2006). The Great Risk Shift",
+                  "concept": "Risk pooling through social insurance"
+                }
+              ]
+            },
+            {
+              "id": "ECO_WEL_L3",
+              "question": "Does the article support strengthening existing safety net programs and expanding eligibility?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "ECO_WEL_L4",
+              "references": [
+                {
+                  "source": "Moffitt, R. (2015). The Deserving Poor, The Family, and the U.S. Welfare System",
+                  "concept": "Effective poverty reduction"
+                }
+              ]
+            },
+            {
+              "id": "ECO_WEL_L4",
+              "question": "Does the article support maintaining current welfare programs with modest improvements to effectiveness?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Haskins, R. & Sawhill, I. (2009). Creating an Opportunity Society",
+                  "concept": "Evidence-based welfare"
+                }
+              ]
+            }
+          ],
+          "right_leaning": [
+            {
+              "id": "ECO_WEL_R1",
+              "question": "Does the article support welfare reform emphasizing work requirements and time limits while maintaining basic safety nets?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Mead, L. (1986). Beyond Entitlement",
+                  "concept": "Work-based welfare"
+                }
+              ]
+            },
+            {
+              "id": "ECO_WEL_R2",
+              "question": "Does the article argue for significant reduction in welfare spending, emphasizing personal responsibility and private charity?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "ECO_WEL_R1",
+              "references": [
+                {
+                  "source": "Murray, C. (1984). Losing Ground",
+                  "concept": "Welfare dependency critique"
+                }
+              ]
+            },
+            {
+              "id": "ECO_WEL_R3",
+              "question": "Does the article advocate for elimination of most federal welfare programs, shifting responsibility to states, localities, or private organizations?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "ECO_WEL_R2",
+              "references": [
+                {
+                  "source": "Tanner, M. (1996). The End of Welfare",
+                  "concept": "Privatized welfare"
+                }
+              ]
+            },
+            {
+              "id": "ECO_WEL_R4",
+              "question": "Does the article argue for complete elimination of all government welfare programs, relying entirely on voluntary charity?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "ECO_WEL_R3",
+              "references": [
+                {
+                  "source": "Rothbard, M. (1982). The Ethics of Liberty",
+                  "concept": "Voluntary aid only"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "ECO_WEL_C",
+            "question": "Does the article present balanced views on welfare, supporting safety nets while emphasizing effectiveness and work incentives?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Blank, R. (1997). It Takes a Nation",
+                "concept": "Balanced welfare policy"
+              }
+            ]
+          }
+        }
+      },
+      "Financial_Sector_Regulation": {
+        "preliminary_check": {
+          "question": "Does the article discuss banking regulation, financial markets, Wall Street, or monetary policy?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "left_leaning": [
+            {
+              "id": "ECO_FIN_L1",
+              "question": "Does the article advocate for nationalizing banks, eliminating private banking, or complete government control of financial sector?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "ECO_FIN_L2",
+              "references": [
+                {
+                  "source": "Mellor, M. (2010). The Future of Money",
+                  "concept": "Public banking"
+                }
+              ]
+            },
+            {
+              "id": "ECO_FIN_L2",
+              "question": "Does the article support breaking up big banks, reinstating Glass-Steagall, or heavy financial transaction taxes?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "ECO_FIN_L3",
+              "references": [
+                {
+                  "source": "Johnson, S. & Kwak, J. (2010). 13 Bankers",
+                  "concept": "Too big to fail problem"
+                },
+                {
+                  "source": "Stiglitz, J. (2010). Freefall",
+                  "concept": "Financial sector reform"
+                }
+              ]
+            },
+            {
+              "id": "ECO_FIN_L3",
+              "question": "Does the article support strengthened consumer financial protections and stricter capital requirements for banks?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "ECO_FIN_L4",
+              "references": [
+                {
+                  "source": "Warren, E. (2014). A Fighting Chance",
+                  "concept": "Consumer Financial Protection Bureau"
+                }
+              ]
+            },
+            {
+              "id": "ECO_FIN_L4",
+              "question": "Does the article support maintaining post-2008 financial regulations with modest enhancements?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Barr, M. et al. (2016). Financial Regulation: Law and Policy",
+                  "concept": "Dodd-Frank framework"
+                }
+              ]
+            }
+          ],
+          "right_leaning": [
+            {
+              "id": "ECO_FIN_R1",
+              "question": "Does the article support modest rollback of financial regulations to reduce compliance costs while maintaining systemic protections?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Calomiris, C. & Haber, S. (2014). Fragile by Design",
+                  "concept": "Banking regulation critique"
+                }
+              ]
+            },
+            {
+              "id": "ECO_FIN_R2",
+              "question": "Does the article argue for significant deregulation of financial sector, emphasizing market discipline over government oversight?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "ECO_FIN_R1",
+              "references": [
+                {
+                  "source": "Greenspan, A. (2007). The Age of Turbulence",
+                  "concept": "Market self-correction"
+                }
+              ]
+            },
+            {
+              "id": "ECO_FIN_R3",
+              "question": "Does the article advocate for elimination of most financial regulations, ending deposit insurance, or abolishing the Federal Reserve?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "ECO_FIN_R2",
+              "references": [
+                {
+                  "source": "Paul, R. (2009). End the Fed",
+                  "concept": "Free banking"
+                },
+                {
+                  "source": "Selgin, G. (1988). The Theory of Free Banking",
+                  "concept": "Competitive currency"
+                }
+              ]
+            },
+            {
+              "id": "ECO_FIN_R4",
+              "question": "Does the article argue for complete elimination of all financial regulation, allowing fully free banking and private currency?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "ECO_FIN_R3",
+              "references": [
+                {
+                  "source": "Rothbard, M. (1983). The Mystery of Banking",
+                  "concept": "100% reserve free banking"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "ECO_FIN_C",
+            "question": "Does the article present balanced views on financial regulation, supporting prudential oversight while encouraging innovation?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Basel Committee on Banking Supervision",
+                "concept": "International banking standards"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "social_values": {
+    "topics": {
+      "LGBTQ_Rights": {
+        "preliminary_check": {
+          "question": "Does the article discuss LGBTQ+ rights, same-sex marriage, gender identity, or related civil rights issues?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_LGBT_P1",
+              "question": "Does the article advocate for comprehensive LGBTQ+ rights including marriage equality, adoption rights, anti-discrimination protections, transgender healthcare coverage, and legal gender recognition?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_LGBT_P2",
+              "references": [
+                {
+                  "source": "Obergefell v. Hodges, 576 U.S. 644 (2015)",
+                  "concept": "Marriage equality as constitutional right"
+                },
+                {
+                  "source": "Human Rights Campaign - Corporate Equality Index",
+                  "concept": "LGBTQ+ workplace protections"
+                }
+              ]
+            },
+            {
+              "id": "SOC_LGBT_P2",
+              "question": "Does the article strongly support LGBTQ+ rights including marriage equality and anti-discrimination laws, with some debate on specific implementation?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_LGBT_P3",
+              "references": [
+                {
+                  "source": "Bostock v. Clayton County, 590 U.S. ___ (2020)",
+                  "concept": "Title VII protections for LGBTQ+ workers"
+                }
+              ]
+            },
+            {
+              "id": "SOC_LGBT_P3",
+              "question": "Does the article support basic LGBTQ+ civil rights protections while expressing some reservations about specific policies like gender-affirming care for minors?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_LGBT_P4",
+              "references": [
+                {
+                  "source": "Pew Research Center - Changing Attitudes on Same-Sex Marriage",
+                  "concept": "Moderate progressive position"
+                }
+              ]
+            },
+            {
+              "id": "SOC_LGBT_P4",
+              "question": "Does the article express general support for LGBTQ+ rights but emphasize need to balance with religious liberty concerns?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Masterpiece Cakeshop v. Colorado Civil Rights Commission (2018)",
+                  "concept": "Balancing rights framework"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_LGBT_C1",
+              "question": "Does the article support civil unions or legal protections for same-sex couples while opposing marriage equality?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Vermont Civil Union Law (2000)",
+                  "concept": "Separate but equal framework"
+                }
+              ]
+            },
+            {
+              "id": "SOC_LGBT_C2",
+              "question": "Does the article oppose same-sex marriage and most LGBTQ+ specific protections, emphasizing traditional marriage and family values?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_LGBT_C1",
+              "references": [
+                {
+                  "source": "Defense of Marriage Act (1996)",
+                  "concept": "Traditional marriage definition"
+                }
+              ]
+            },
+            {
+              "id": "SOC_LGBT_C3",
+              "question": "Does the article strongly oppose LGBTQ+ rights, arguing homosexuality is immoral and should not be legally protected?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_LGBT_C2",
+              "references": [
+                {
+                  "source": "Traditional Values Coalition",
+                  "concept": "Religious conservative opposition"
+                }
+              ]
+            },
+            {
+              "id": "SOC_LGBT_C4",
+              "question": "Does the article advocate for criminalization of homosexual behavior, conversion therapy, or complete exclusion of LGBTQ+ individuals from civil protections?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_LGBT_C3",
+              "references": [
+                {
+                  "source": "Bowers v. Hardwick, 478 U.S. 186 (1986) - overruled",
+                  "concept": "Historical criminalization"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_LGBT_CTR",
+            "question": "Does the article present balanced views, acknowledging both LGBTQ+ rights and religious/traditional concerns without strong advocacy either way?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Pew Research Center surveys on LGBTQ+ issues",
+                "concept": "Public opinion middle ground"
+              }
+            ]
+          }
+        }
+      },
+      "Abortion_and_Reproductive_Rights": {
+        "preliminary_check": {
+          "question": "Does the article discuss abortion, reproductive rights, family planning, or related policies?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_ABO_P1",
+              "question": "Does the article advocate for unrestricted abortion access at any stage, government funding for abortion, and abortion as a fundamental healthcare right?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_ABO_P2",
+              "references": [
+                {
+                  "source": "NARAL Pro-Choice America Policy Platform",
+                  "concept": "Unrestricted reproductive freedom"
+                }
+              ]
+            },
+            {
+              "id": "SOC_ABO_P2",
+              "question": "Does the article strongly support abortion rights with minimal restrictions, opposing waiting periods, parental notification, and ultrasound requirements?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_ABO_P3",
+              "references": [
+                {
+                  "source": "Planned Parenthood v. Casey, 505 U.S. 833 (1992)",
+                  "concept": "Undue burden standard"
+                }
+              ]
+            },
+            {
+              "id": "SOC_ABO_P3",
+              "question": "Does the article support abortion rights generally while accepting some regulations like gestational limits in later pregnancy?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_ABO_P4",
+              "references": [
+                {
+                  "source": "Roe v. Wade trimester framework (historical)",
+                  "concept": "Viability standard"
+                }
+              ]
+            },
+            {
+              "id": "SOC_ABO_P4",
+              "question": "Does the article express support for abortion being legal in early pregnancy with acceptance of some reasonable regulations?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Gallup polling on abortion views",
+                  "concept": "Moderate pro-choice position"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_ABO_C1",
+              "question": "Does the article support abortion restrictions but allow exceptions for rape, incest, and life of mother?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Hyde Amendment framework",
+                  "concept": "Limited abortion access"
+                }
+              ]
+            },
+            {
+              "id": "SOC_ABO_C2",
+              "question": "Does the article oppose most abortions, supporting significant restrictions while allowing only for life of mother?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_ABO_C1",
+              "references": [
+                {
+                  "source": "Americans United for Life model legislation",
+                  "concept": "Pro-life legislative framework"
+                }
+              ]
+            },
+            {
+              "id": "SOC_ABO_C3",
+              "question": "Does the article strongly oppose abortion in all cases except imminent threat to mother's life, framing abortion as morally equivalent to murder?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_ABO_C2",
+              "references": [
+                {
+                  "source": "National Right to Life Committee positions",
+                  "concept": "Personhood at conception"
+                }
+              ]
+            },
+            {
+              "id": "SOC_ABO_C4",
+              "question": "Does the article advocate for complete abortion ban with no exceptions, potentially including criminal penalties for providers and patients?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_ABO_C3",
+              "references": [
+                {
+                  "source": "Personhood movement",
+                  "concept": "Total abortion ban"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_ABO_CTR",
+            "question": "Does the article present balanced views, acknowledging both pro-choice and pro-life perspectives without strong advocacy?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Pew Research Center abortion attitudes",
+                "concept": "Public opinion nuance"
+              }
+            ]
+          }
+        }
+      },
+      "Immigration_Social": {
+        "preliminary_check": {
+          "question": "Does the article discuss immigration policy, refugee policy, or treatment of immigrants from a social/cultural perspective?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_IMM_P1",
+              "question": "Does the article advocate for open borders, abolishing immigration enforcement agencies, or treating immigration as a human right?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_IMM_P2",
+              "references": [
+                {
+                  "source": "Carens, J. (2013). The Ethics of Immigration",
+                  "concept": "Open borders philosophy"
+                }
+              ]
+            },
+            {
+              "id": "SOC_IMM_P2",
+              "question": "Does the article strongly support immigration, pathways to citizenship for undocumented immigrants, and sanctuary city policies?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_IMM_P3",
+              "references": [
+                {
+                  "source": "DACA and DREAM Act proposals",
+                  "concept": "Comprehensive immigration reform"
+                }
+              ]
+            },
+            {
+              "id": "SOC_IMM_P3",
+              "question": "Does the article support immigration reform that provides legal status for long-term undocumented residents and increases legal immigration?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_IMM_P4",
+              "references": [
+                {
+                  "source": "Gang of Eight Immigration Bill (2013)",
+                  "concept": "Comprehensive reform framework"
+                }
+              ]
+            },
+            {
+              "id": "SOC_IMM_P4",
+              "question": "Does the article support humane treatment of immigrants and modest increases in legal immigration while acknowledging need for border security?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Bipartisan immigration reform proposals",
+                  "concept": "Moderate pro-immigration stance"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_IMM_C1",
+              "question": "Does the article support merit-based immigration reform and stricter enforcement while opposing mass deportation?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "RAISE Act proposals",
+                  "concept": "Skills-based immigration"
+                }
+              ]
+            },
+            {
+              "id": "SOC_IMM_C2",
+              "question": "Does the article advocate for significant reduction in legal immigration, stricter enforcement, and opposition to amnesty programs?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_IMM_C1",
+              "references": [
+                {
+                  "source": "Center for Immigration Studies positions",
+                  "concept": "Immigration restriction"
+                }
+              ]
+            },
+            {
+              "id": "SOC_IMM_C3",
+              "question": "Does the article strongly oppose immigration, supporting mass deportation and dramatic reduction in legal immigration to preserve cultural identity?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_IMM_C2",
+              "references": [
+                {
+                  "source": "Federation for American Immigration Reform",
+                  "concept": "Immigration moratorium"
+                }
+              ]
+            },
+            {
+              "id": "SOC_IMM_C4",
+              "question": "Does the article advocate for near-complete halt to immigration, deportation of all undocumented immigrants, and explicitly nativist or ethno-nationalist arguments?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_IMM_C3",
+              "references": [
+                {
+                  "source": "Historical immigration restriction movements",
+                  "concept": "Nativist position"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_IMM_CTR",
+            "question": "Does the article present balanced views, supporting both border security and humane treatment of immigrants?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Gallup immigration polling",
+                "concept": "Public opinion middle ground"
+              }
+            ]
+          }
+        }
+      },
+      "Climate_Change_and_Environment": {
+        "preliminary_check": {
+          "question": "Does the article discuss climate change, environmental policy, or related regulations?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_CLI_P1",
+              "question": "Does the article advocate for radical transformation of economy to address climate change, such as Green New Deal, banning fossil fuels, or climate emergency declarations with wartime mobilization?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_CLI_P2",
+              "references": [
+                {
+                  "source": "Green New Deal Resolution (2019)",
+                  "concept": "Transformational climate policy"
+                },
+                {
+                  "source": "Extinction Rebellion demands",
+                  "concept": "Climate emergency framework"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CLI_P2",
+              "question": "Does the article strongly support aggressive climate action including carbon taxes, strict emissions regulations, and rapid transition to renewable energy?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_CLI_P3",
+              "references": [
+                {
+                  "source": "IPCC Special Report on 1.5°C",
+                  "concept": "Science-based climate targets"
+                },
+                {
+                  "source": "Paris Agreement goals",
+                  "concept": "International climate commitments"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CLI_P3",
+              "question": "Does the article support meaningful climate action through market mechanisms like cap-and-trade and investment in clean energy?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_CLI_P4",
+              "references": [
+                {
+                  "source": "Nordhaus, W. (2013). The Climate Casino",
+                  "concept": "Economic approach to climate"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CLI_P4",
+              "question": "Does the article acknowledge climate change as a problem requiring action but emphasize gradual, cost-effective approaches?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Copenhagen Consensus",
+                  "concept": "Cost-benefit climate policy"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_CLI_C1",
+              "question": "Does the article acknowledge climate change but argue for technology-focused solutions over regulation, opposing carbon taxes?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Breakthrough Institute positions",
+                  "concept": "Ecomodernism"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CLI_C2",
+              "question": "Does the article express skepticism about climate urgency, opposing most climate regulations as economically harmful?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_CLI_C1",
+              "references": [
+                {
+                  "source": "Lomborg, B. (2001). The Skeptical Environmentalist",
+                  "concept": "Climate policy skepticism"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CLI_C3",
+              "question": "Does the article question climate science consensus, strongly oppose environmental regulations, and prioritize fossil fuel industry?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_CLI_C2",
+              "references": [
+                {
+                  "source": "Heritage Foundation climate positions",
+                  "concept": "Regulatory opposition"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CLI_C4",
+              "question": "Does the article deny human-caused climate change entirely, characterize it as a hoax, or advocate for elimination of all environmental protections?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_CLI_C3",
+              "references": [
+                {
+                  "source": "Climate change denial movements",
+                  "concept": "Science denial"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_CLI_CTR",
+            "question": "Does the article present balanced views, acknowledging climate concerns while weighing economic trade-offs?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Intergovernmental Panel on Climate Change Working Group III",
+                "concept": "Mitigation economics"
+              }
+            ]
+          }
+        }
+      },
+      "Racial_Justice_and_Equity": {
+        "preliminary_check": {
+          "question": "Does the article discuss racial justice, systemic racism, affirmative action, or racial equity policies?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_RAC_P1",
+              "question": "Does the article advocate for reparations, radical restructuring of institutions to eliminate systemic racism, or defunding/abolishing police?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_RAC_P2",
+              "references": [
+                {
+                  "source": "Coates, T. (2014). The Case for Reparations",
+                  "concept": "Reparations argument"
+                },
+                {
+                  "source": "Movement for Black Lives Platform",
+                  "concept": "Systemic change demands"
+                }
+              ]
+            },
+            {
+              "id": "SOC_RAC_P2",
+              "question": "Does the article strongly support anti-racist policies, affirmative action, and acknowledges systemic racism as a major ongoing problem?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_RAC_P3",
+              "references": [
+                {
+                  "source": "Kendi, I. (2019). How to Be an Antiracist",
+                  "concept": "Anti-racist policy framework"
+                }
+              ]
+            },
+            {
+              "id": "SOC_RAC_P3",
+              "question": "Does the article support diversity initiatives, acknowledge historical discrimination, and favor policies to reduce racial disparities?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_RAC_P4",
+              "references": [
+                {
+                  "source": "Grutter v. Bollinger, 539 U.S. 306 (2003)",
+                  "concept": "Diversity rationale for affirmative action"
+                }
+              ]
+            },
+            {
+              "id": "SOC_RAC_P4",
+              "question": "Does the article support some racial equity measures while emphasizing class-based rather than race-specific solutions?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Wilson, W.J. (1978). The Declining Significance of Race",
+                  "concept": "Class-based approach"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_RAC_C1",
+              "question": "Does the article oppose race-specific policies but support equal opportunity and acknowledge some historical injustices?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Colorblind Constitution interpretation",
+                  "concept": "Race-neutral policy"
+                }
+              ]
+            },
+            {
+              "id": "SOC_RAC_C2",
+              "question": "Does the article oppose affirmative action and most racial equity policies as discriminatory, emphasizing individual responsibility?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_RAC_C1",
+              "references": [
+                {
+                  "source": "Students for Fair Admissions v. Harvard (2023)",
+                  "concept": "Opposition to race-conscious admissions"
+                },
+                {
+                  "source": "Sowell, T. (2004). Affirmative Action Around the World",
+                  "concept": "Affirmative action critique"
+                }
+              ]
+            },
+            {
+              "id": "SOC_RAC_C3",
+              "question": "Does the article deny systemic racism exists, oppose diversity initiatives, and argue racism is primarily a historical rather than current issue?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_RAC_C2",
+              "references": [
+                {
+                  "source": "McWhorter, J. (2000). Losing the Race",
+                  "concept": "Post-racial perspective"
+                }
+              ]
+            },
+            {
+              "id": "SOC_RAC_C4",
+              "question": "Does the article promote explicitly racial hierarchy views, defend historical discrimination, or oppose civil rights protections entirely?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_RAC_C3",
+              "references": [
+                {
+                  "source": "Historical segregationist arguments",
+                  "concept": "Racial hierarchy views"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_RAC_CTR",
+            "question": "Does the article present balanced views on racial issues, acknowledging both historical injustices and concerns about race-based policies?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Public opinion polling on racial justice",
+                "concept": "Nuanced public views"
+              }
+            ]
+          }
+        }
+      },
+      "Gender_Equality": {
+        "preliminary_check": {
+          "question": "Does the article discuss gender equality, feminism, women's rights, or gender-related policies?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_GEN_P1",
+              "question": "Does the article advocate for radical feminist restructuring of society, mandatory gender quotas, or elimination of all gender-based distinctions?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_GEN_P2",
+              "references": [
+                {
+                  "source": "Butler, J. (1990). Gender Trouble",
+                  "concept": "Gender as social construct"
+                },
+                {
+                  "source": "MacKinnon, C. (1989). Toward a Feminist Theory of the State",
+                  "concept": "Radical feminist framework"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GEN_P2",
+              "question": "Does the article strongly support feminist policies including paid family leave, pay equity legislation, and addressing systemic gender discrimination?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_GEN_P3",
+              "references": [
+                {
+                  "source": "UN Women Policy Documents",
+                  "concept": "Gender mainstreaming"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GEN_P3",
+              "question": "Does the article support gender equality measures like equal pay laws and anti-harassment policies?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_GEN_P4",
+              "references": [
+                {
+                  "source": "Lilly Ledbetter Fair Pay Act",
+                  "concept": "Pay equity legislation"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GEN_P4",
+              "question": "Does the article express support for gender equality while acknowledging some biological or preference-based differences?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Moderate feminist perspectives",
+                  "concept": "Equality with difference"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_GEN_C1",
+              "question": "Does the article support equal rights while opposing gender quotas and emphasizing different but complementary roles?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Difference feminism perspectives",
+                  "concept": "Complementary gender roles"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GEN_C2",
+              "question": "Does the article oppose most feminist policies, argue gender gaps are largely explained by choices, and support traditional gender roles?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_GEN_C1",
+              "references": [
+                {
+                  "source": "Sommers, C.H. (1994). Who Stole Feminism?",
+                  "concept": "Equity feminism critique"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GEN_C3",
+              "question": "Does the article strongly advocate for traditional gender roles as natural and beneficial, opposing workplace equality efforts?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_GEN_C2",
+              "references": [
+                {
+                  "source": "Traditional family values organizations",
+                  "concept": "Gender role traditionalism"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GEN_C4",
+              "question": "Does the article argue women should be excluded from certain professions, oppose women's suffrage principles, or promote explicit patriarchal ideology?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_GEN_C3",
+              "references": [
+                {
+                  "source": "Historical anti-feminist movements",
+                  "concept": "Patriarchal ideology"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_GEN_CTR",
+            "question": "Does the article present balanced views on gender, supporting equality while respecting individual choices?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Public opinion on gender roles",
+                "concept": "Mainstream gender views"
+              }
+            ]
+          }
+        }
+      },
+      "Gun_Rights_and_Control": {
+        "preliminary_check": {
+          "question": "Does the article discuss gun rights, gun control, Second Amendment issues, or firearm regulations?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_GUN_P1",
+              "question": "Does the article advocate for repealing the Second Amendment, banning all civilian firearms, or mandatory gun confiscation?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_GUN_P2",
+              "references": [
+                {
+                  "source": "Gun control advocacy positions",
+                  "concept": "Complete gun prohibition"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GUN_P2",
+              "question": "Does the article strongly support assault weapons bans, mandatory buybacks, strict licensing requirements, and significant restrictions on gun ownership?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_GUN_P3",
+              "references": [
+                {
+                  "source": "March for Our Lives demands",
+                  "concept": "Comprehensive gun control"
+                },
+                {
+                  "source": "Giffords Law Center recommendations",
+                  "concept": "Strong gun safety laws"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GUN_P3",
+              "question": "Does the article support enhanced background checks, red flag laws, and moderate restrictions while acknowledging gun rights?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_GUN_P4",
+              "references": [
+                {
+                  "source": "Bipartisan Safer Communities Act (2022)",
+                  "concept": "Moderate gun reform"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GUN_P4",
+              "question": "Does the article support some common-sense gun measures like universal background checks while respecting Second Amendment rights?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Polling on universal background checks",
+                  "concept": "Popular gun measures"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_GUN_C1",
+              "question": "Does the article support Second Amendment rights while accepting some regulations like background checks?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "District of Columbia v. Heller (2008)",
+                  "concept": "Individual right with reasonable restrictions"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GUN_C2",
+              "question": "Does the article strongly support gun rights, oppose most new gun control measures, and support concealed carry expansion?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_GUN_C1",
+              "references": [
+                {
+                  "source": "NRA policy positions",
+                  "concept": "Gun rights advocacy"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GUN_C3",
+              "question": "Does the article advocate for constitutional carry, oppose virtually all gun regulations, and view gun ownership as essential to freedom?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_GUN_C2",
+              "references": [
+                {
+                  "source": "Gun Owners of America positions",
+                  "concept": "Strict gun rights interpretation"
+                }
+              ]
+            },
+            {
+              "id": "SOC_GUN_C4",
+              "question": "Does the article argue for elimination of all gun laws, including machine gun bans, and advocate armed resistance to any gun regulation?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_GUN_C3",
+              "references": [
+                {
+                  "source": "Absolutist Second Amendment interpretation",
+                  "concept": "No regulation position"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_GUN_CTR",
+            "question": "Does the article present balanced views, supporting both gun rights and reasonable safety measures?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Gallup gun polling",
+                "concept": "Public opinion middle ground"
+              }
+            ]
+          }
+        }
+      },
+      "Criminal_Justice": {
+        "preliminary_check": {
+          "question": "Does the article discuss criminal justice, policing, incarceration, or justice reform?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_CRJ_P1",
+              "question": "Does the article advocate for prison abolition, defunding police, or radical transformation of justice system toward restorative/transformative justice?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_CRJ_P2",
+              "references": [
+                {
+                  "source": "Davis, A. (2003). Are Prisons Obsolete?",
+                  "concept": "Prison abolition"
+                },
+                {
+                  "source": "Movement for Black Lives defund demands",
+                  "concept": "Defund police movement"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CRJ_P2",
+              "question": "Does the article strongly support decarceration, ending cash bail, decriminalizing drugs, and significant police reform?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_CRJ_P3",
+              "references": [
+                {
+                  "source": "ACLU Criminal Justice Reform Platform",
+                  "concept": "Comprehensive reform"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CRJ_P3",
+              "question": "Does the article support criminal justice reform including reduced sentences, police accountability, and rehabilitation focus?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_CRJ_P4",
+              "references": [
+                {
+                  "source": "First Step Act (2018)",
+                  "concept": "Bipartisan reform"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CRJ_P4",
+              "question": "Does the article support some reform efforts while maintaining support for law enforcement?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Moderate criminal justice reform proposals",
+                  "concept": "Incremental reform"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_CRJ_C1",
+              "question": "Does the article support law enforcement while acknowledging need for some reforms and accountability?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Police reform proposals",
+                  "concept": "Reform with support"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CRJ_C2",
+              "question": "Does the article strongly support law enforcement, oppose defund movements, and emphasize tough-on-crime policies?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_CRJ_C1",
+              "references": [
+                {
+                  "source": "Fraternal Order of Police positions",
+                  "concept": "Law enforcement support"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CRJ_C3",
+              "question": "Does the article advocate for increased incarceration, expanded police powers, and oppose most criminal justice reforms?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_CRJ_C2",
+              "references": [
+                {
+                  "source": "Tough-on-crime policy advocacy",
+                  "concept": "Punitive approach"
+                }
+              ]
+            },
+            {
+              "id": "SOC_CRJ_C4",
+              "question": "Does the article advocate for extreme punitive measures, expanding death penalty, or support vigilante justice?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_CRJ_C3",
+              "references": [
+                {
+                  "source": "Extreme punitive positions",
+                  "concept": "Maximum punishment"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_CRJ_CTR",
+            "question": "Does the article present balanced views on criminal justice, supporting both public safety and reform?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Bipartisan criminal justice reform efforts",
+                "concept": "Balanced approach"
+              }
+            ]
+          }
+        }
+      },
+      "Religious_Freedom_and_Secularism": {
+        "preliminary_check": {
+          "question": "Does the article discuss religious freedom, church-state separation, or role of religion in public life?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_REL_P1",
+              "question": "Does the article advocate for strict secularism, removing all religious references from public life, or treating religious exemptions as discrimination?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_REL_P2",
+              "references": [
+                {
+                  "source": "Secular humanism advocacy",
+                  "concept": "Strict church-state separation"
+                }
+              ]
+            },
+            {
+              "id": "SOC_REL_P2",
+              "question": "Does the article strongly support church-state separation and argue religious exemptions should not override civil rights laws?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_REL_P3",
+              "references": [
+                {
+                  "source": "Americans United for Separation of Church and State",
+                  "concept": "Church-state separation"
+                }
+              ]
+            },
+            {
+              "id": "SOC_REL_P3",
+              "question": "Does the article support religious freedom while arguing it should be balanced against other civil rights?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_REL_P4",
+              "references": [
+                {
+                  "source": "Employment Division v. Smith (1990)",
+                  "concept": "Neutral laws framework"
+                }
+              ]
+            },
+            {
+              "id": "SOC_REL_P4",
+              "question": "Does the article support both religious freedom and secular governance without strong advocacy either way?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "First Amendment balanced interpretation",
+                  "concept": "Religious freedom and establishment"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_REL_C1",
+              "question": "Does the article support religious freedom protections while respecting secular governance?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Religious Freedom Restoration Act (1993)",
+                  "concept": "Religious accommodation"
+                }
+              ]
+            },
+            {
+              "id": "SOC_REL_C2",
+              "question": "Does the article strongly support religious freedom exemptions and argue religion has important public role?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_REL_C1",
+              "references": [
+                {
+                  "source": "Burwell v. Hobby Lobby (2014)",
+                  "concept": "Corporate religious freedom"
+                }
+              ]
+            },
+            {
+              "id": "SOC_REL_C3",
+              "question": "Does the article advocate for significant religious influence in public policy and education, including school prayer?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_REL_C2",
+              "references": [
+                {
+                  "source": "Religious right policy positions",
+                  "concept": "Religious influence in government"
+                }
+              ]
+            },
+            {
+              "id": "SOC_REL_C4",
+              "question": "Does the article advocate for theocracy, Christian nationalism, or explicit religious test for public office?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_REL_C3",
+              "references": [
+                {
+                  "source": "Christian nationalist movements",
+                  "concept": "Theocratic governance"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_REL_CTR",
+            "question": "Does the article present balanced views on religion and government, supporting both freedom and separation?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "First Amendment jurisprudence",
+                "concept": "Balanced interpretation"
+              }
+            ]
+          }
+        }
+      },
+      "Education_Policy": {
+        "preliminary_check": {
+          "question": "Does the article discuss education policy, school choice, curriculum, or higher education?",
+          "options": ["Yes", "No"],
+          "next_step": {
+            "Yes": "branch_questions",
+            "No": "score_NA"
+          }
+        },
+        "branch_questions": {
+          "progressive_leaning": [
+            {
+              "id": "SOC_EDU_P1",
+              "question": "Does the article advocate for universal free education through graduate school, eliminating private schools, or complete government control of curriculum?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -10,
+              "next_step_if_no": "SOC_EDU_P2",
+              "references": [
+                {
+                  "source": "Free college proposals",
+                  "concept": "Universal public education"
+                }
+              ]
+            },
+            {
+              "id": "SOC_EDU_P2",
+              "question": "Does the article strongly support increased education funding, universal pre-K, free community college, and progressive curriculum including diversity education?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -7.5,
+              "next_step_if_no": "SOC_EDU_P3",
+              "references": [
+                {
+                  "source": "Sanders/Warren education plans",
+                  "concept": "Expanded public education"
+                }
+              ]
+            },
+            {
+              "id": "SOC_EDU_P3",
+              "question": "Does the article support increased public school funding and oppose school voucher programs?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -5,
+              "next_step_if_no": "SOC_EDU_P4",
+              "references": [
+                {
+                  "source": "NEA policy positions",
+                  "concept": "Public school support"
+                }
+              ]
+            },
+            {
+              "id": "SOC_EDU_P4",
+              "question": "Does the article support public education while acknowledging need for some reforms?",
+              "options": ["Yes", "No"],
+              "score_if_yes": -2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Moderate education reform proposals",
+                  "concept": "Pragmatic public education"
+                }
+              ]
+            }
+          ],
+          "conservative_leaning": [
+            {
+              "id": "SOC_EDU_C1",
+              "question": "Does the article support school choice options including charter schools while maintaining public education?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 2.5,
+              "next_step_if_no": "centrism",
+              "references": [
+                {
+                  "source": "Charter school movement",
+                  "concept": "School choice within public system"
+                }
+              ]
+            },
+            {
+              "id": "SOC_EDU_C2",
+              "question": "Does the article strongly support school vouchers, parental rights in curriculum, and reducing federal education role?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 5,
+              "next_step_if_no": "SOC_EDU_C1",
+              "references": [
+                {
+                  "source": "Friedman, M. (1955). The Role of Government in Education",
+                  "concept": "Voucher system"
+                }
+              ]
+            },
+            {
+              "id": "SOC_EDU_C3",
+              "question": "Does the article advocate for universal school vouchers, eliminating Department of Education, and opposing progressive curriculum elements?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 7.5,
+              "next_step_if_no": "SOC_EDU_C2",
+              "references": [
+                {
+                  "source": "Heritage Foundation education policy",
+                  "concept": "Education freedom"
+                }
+              ]
+            },
+            {
+              "id": "SOC_EDU_C4",
+              "question": "Does the article argue for eliminating public schools entirely in favor of private/homeschool, or advocate religious education only?",
+              "options": ["Yes", "No"],
+              "score_if_yes": 10,
+              "next_step_if_no": "SOC_EDU_C3",
+              "references": [
+                {
+                  "source": "Separation of school and state movement",
+                  "concept": "Complete privatization"
+                }
+              ]
+            }
+          ],
+          "centrism": {
+            "id": "SOC_EDU_CTR",
+            "question": "Does the article present balanced views on education, supporting both public schools and some choice options?",
+            "options": ["Yes", "No"],
+            "score_if_yes": 0,
+            "references": [
+              {
+                "source": "Bipartisan education reform efforts",
+                "concept": "Balanced approach"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "scoring_methodology": {
+    "description": "How to calculate final ideology scores",
+    "economic_score_calculation": {
+      "method": "Average scores across all applicable economic topics",
+      "formula": "sum(topic_scores) / count(applicable_topics)",
+      "weight": 0.35,
+      "notes": "Topics scored as NA (not applicable) are excluded from calculation"
+    },
+    "social_score_calculation": {
+      "method": "Average scores across all applicable social topics",
+      "formula": "sum(topic_scores) / count(applicable_topics)",
+      "weight": 0.35,
+      "notes": "Topics scored as NA (not applicable) are excluded from calculation"
+    },
+    "combined_score": {
+      "method": "Weighted combination of economic and social scores",
+      "formula": "(economic_score * 0.35) + (social_score * 0.35) + (other_factors * 0.30)",
+      "interpretation": {
+        "very_left": "Combined score < -5",
+        "left": "Combined score -5 to -2.5",
+        "center_left": "Combined score -2.5 to -0.5",
+        "center": "Combined score -0.5 to 0.5",
+        "center_right": "Combined score 0.5 to 2.5",
+        "right": "Combined score 2.5 to 5",
+        "very_right": "Combined score > 5"
+      }
+    },
+    "question_flow": {
+      "step_1": "Apply preliminary check for each topic",
+      "step_2": "If Yes, determine if article leans left or right on topic",
+      "step_3": "Start from most extreme position and work toward center",
+      "step_4": "Score at first Yes answer, or score 0 if all answers are No",
+      "step_5": "Calculate averages for each dimension"
+    }
+  },
+  "academic_references_bibliography": {
+    "economic_foundations": [
+      {
+        "citation": "Marx, K. & Engels, F. (1848). The Communist Manifesto. London: Communist League.",
+        "relevance": "Foundation for understanding far-left economic ideology"
+      },
+      {
+        "citation": "Smith, A. (1776). An Inquiry into the Nature and Causes of the Wealth of Nations. London: W. Strahan and T. Cadell.",
+        "relevance": "Foundation for classical liberal economics"
+      },
+      {
+        "citation": "Keynes, J.M. (1936). The General Theory of Employment, Interest and Money. London: Macmillan.",
+        "relevance": "Foundation for mixed economy and government intervention"
+      },
+      {
+        "citation": "Hayek, F.A. (1944). The Road to Serfdom. London: Routledge.",
+        "relevance": "Classical liberal critique of central planning"
+      },
+      {
+        "citation": "Friedman, M. (1962). Capitalism and Freedom. Chicago: University of Chicago Press.",
+        "relevance": "Modern libertarian economics foundation"
+      },
+      {
+        "citation": "Piketty, T. (2014). Capital in the Twenty-First Century. Cambridge: Harvard University Press.",
+        "relevance": "Contemporary progressive economic analysis"
+      },
+      {
+        "citation": "Nozick, R. (1974). Anarchy, State, and Utopia. New York: Basic Books.",
+        "relevance": "Libertarian political philosophy"
+      },
+      {
+        "citation": "Rothbard, M. (1982). The Ethics of Liberty. Atlantic Highlands: Humanities Press.",
+        "relevance": "Anarcho-capitalist philosophy"
+      }
+    ],
+    "social_values_foundations": [
+      {
+        "citation": "Rawls, J. (1971). A Theory of Justice. Cambridge: Harvard University Press.",
+        "relevance": "Liberal political philosophy foundation"
+      },
+      {
+        "citation": "Burke, E. (1790). Reflections on the Revolution in France. London: J. Dodsley.",
+        "relevance": "Conservative political philosophy foundation"
+      },
+      {
+        "citation": "Mill, J.S. (1859). On Liberty. London: John W. Parker and Son.",
+        "relevance": "Classical liberal individual rights"
+      },
+      {
+        "citation": "Kendi, I.X. (2019). How to Be an Antiracist. New York: One World.",
+        "relevance": "Contemporary progressive racial justice"
+      },
+      {
+        "citation": "Sowell, T. (1987). A Conflict of Visions. New York: William Morrow.",
+        "relevance": "Conservative analysis of ideological differences"
+      },
+      {
+        "citation": "Butler, J. (1990). Gender Trouble. New York: Routledge.",
+        "relevance": "Progressive gender theory"
+      }
+    ],
+    "methodology_references": [
+      {
+        "citation": "Budge, I. et al. (2001). Mapping Policy Preferences: Estimates for Parties, Electors, and Governments 1945-1998. Oxford: Oxford University Press.",
+        "relevance": "Methodology for measuring political positions"
+      },
+      {
+        "citation": "Gentzkow, M. & Shapiro, J.M. (2010). What Drives Media Slant? Evidence From U.S. Daily Newspapers. Econometrica, 78(1), 35-71.",
+        "relevance": "Quantitative media bias measurement"
+      },
+      {
+        "citation": "Groseclose, T. & Milyo, J. (2005). A Measure of Media Bias. Quarterly Journal of Economics, 120(4), 1191-1237.",
+        "relevance": "Academic media bias scoring methodology"
+      }
+    ]
+  }
+}

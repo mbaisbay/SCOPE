@@ -1,0 +1,125 @@
+domain,media_type,wikipedia_source
+# Television Networks
+cnn.com,TV,https://en.wikipedia.org/wiki/CNN
+foxnews.com,TV,https://en.wikipedia.org/wiki/Fox_News
+msnbc.com,TV,https://en.wikipedia.org/wiki/MSNBC
+bbc.com,TV,https://en.wikipedia.org/wiki/BBC
+bbc.co.uk,TV,https://en.wikipedia.org/wiki/BBC
+cbsnews.com,TV,https://en.wikipedia.org/wiki/CBS_News
+abcnews.go.com,TV,https://en.wikipedia.org/wiki/ABC_News
+nbcnews.com,TV,https://en.wikipedia.org/wiki/NBC_News
+aljazeera.com,TV,https://en.wikipedia.org/wiki/Al_Jazeera
+rt.com,TV,https://en.wikipedia.org/wiki/RT_(TV_network)
+dw.com,TV,https://en.wikipedia.org/wiki/Deutsche_Welle
+france24.com,TV,https://en.wikipedia.org/wiki/France_24
+euronews.com,TV,https://en.wikipedia.org/wiki/Euronews
+skynews.com,TV,https://en.wikipedia.org/wiki/Sky_News
+news.sky.com,TV,https://en.wikipedia.org/wiki/Sky_News
+cnbc.com,TV,https://en.wikipedia.org/wiki/CNBC
+bloomberg.com,TV,https://en.wikipedia.org/wiki/Bloomberg_Television
+pbs.org,TV,https://en.wikipedia.org/wiki/PBS
+c-span.org,TV,https://en.wikipedia.org/wiki/C-SPAN
+nhk.or.jp,TV,https://en.wikipedia.org/wiki/NHK
+# Newspapers
+nytimes.com,Newspaper,https://en.wikipedia.org/wiki/The_New_York_Times
+washingtonpost.com,Newspaper,https://en.wikipedia.org/wiki/The_Washington_Post
+wsj.com,Newspaper,https://en.wikipedia.org/wiki/The_Wall_Street_Journal
+theguardian.com,Newspaper,https://en.wikipedia.org/wiki/The_Guardian
+latimes.com,Newspaper,https://en.wikipedia.org/wiki/Los_Angeles_Times
+chicagotribune.com,Newspaper,https://en.wikipedia.org/wiki/Chicago_Tribune
+usatoday.com,Newspaper,https://en.wikipedia.org/wiki/USA_Today
+nypost.com,Newspaper,https://en.wikipedia.org/wiki/New_York_Post
+nydailynews.com,Newspaper,https://en.wikipedia.org/wiki/New_York_Daily_News
+telegraph.co.uk,Newspaper,https://en.wikipedia.org/wiki/The_Daily_Telegraph
+independent.co.uk,Newspaper,https://en.wikipedia.org/wiki/The_Independent
+dailymail.co.uk,Newspaper,https://en.wikipedia.org/wiki/Daily_Mail
+thesun.co.uk,Newspaper,https://en.wikipedia.org/wiki/The_Sun_(United_Kingdom)
+mirror.co.uk,Newspaper,https://en.wikipedia.org/wiki/Daily_Mirror
+thetimes.co.uk,Newspaper,https://en.wikipedia.org/wiki/The_Times
+ft.com,Newspaper,https://en.wikipedia.org/wiki/Financial_Times
+lemonde.fr,Newspaper,https://en.wikipedia.org/wiki/Le_Monde
+spiegel.de,Newspaper,https://en.wikipedia.org/wiki/Der_Spiegel
+elpais.com,Newspaper,https://en.wikipedia.org/wiki/El_Pa%C3%ADs
+corriere.it,Newspaper,https://en.wikipedia.org/wiki/Corriere_della_Sera
+globo.com,Newspaper,https://en.wikipedia.org/wiki/O_Globo
+scmp.com,Newspaper,https://en.wikipedia.org/wiki/South_China_Morning_Post
+theaustralian.com.au,Newspaper,https://en.wikipedia.org/wiki/The_Australian
+smh.com.au,Newspaper,https://en.wikipedia.org/wiki/The_Sydney_Morning_Herald
+torontosun.com,Newspaper,https://en.wikipedia.org/wiki/Toronto_Sun
+theglobeandmail.com,Newspaper,https://en.wikipedia.org/wiki/The_Globe_and_Mail
+bostonglobe.com,Newspaper,https://en.wikipedia.org/wiki/The_Boston_Globe
+sfchronicle.com,Newspaper,https://en.wikipedia.org/wiki/San_Francisco_Chronicle
+denverpost.com,Newspaper,https://en.wikipedia.org/wiki/The_Denver_Post
+seattletimes.com,Newspaper,https://en.wikipedia.org/wiki/The_Seattle_Times
+dallasnews.com,Newspaper,https://en.wikipedia.org/wiki/The_Dallas_Morning_News
+houstonchronicle.com,Newspaper,https://en.wikipedia.org/wiki/Houston_Chronicle
+ajc.com,Newspaper,https://en.wikipedia.org/wiki/The_Atlanta_Journal-Constitution
+startribune.com,Newspaper,https://en.wikipedia.org/wiki/Star_Tribune
+inquirer.com,Newspaper,https://en.wikipedia.org/wiki/The_Philadelphia_Inquirer
+# Digital-Native News Websites
+politico.com,Website,https://en.wikipedia.org/wiki/Politico
+axios.com,Website,https://en.wikipedia.org/wiki/Axios_(website)
+vox.com,Website,https://en.wikipedia.org/wiki/Vox_(website)
+thehill.com,Website,https://en.wikipedia.org/wiki/The_Hill_(newspaper)
+huffpost.com,Website,https://en.wikipedia.org/wiki/HuffPost
+buzzfeednews.com,Website,https://en.wikipedia.org/wiki/BuzzFeed_News
+dailywire.com,Website,https://en.wikipedia.org/wiki/The_Daily_Wire
+breitbart.com,Website,https://en.wikipedia.org/wiki/Breitbart_News
+thedailybeast.com,Website,https://en.wikipedia.org/wiki/The_Daily_Beast
+theintercept.com,Website,https://en.wikipedia.org/wiki/The_Intercept
+vice.com,Website,https://en.wikipedia.org/wiki/Vice_Media
+qz.com,Website,https://en.wikipedia.org/wiki/Quartz_(publication)
+fivethirtyeight.com,Website,https://en.wikipedia.org/wiki/FiveThirtyEight
+realclearpolitics.com,Website,https://en.wikipedia.org/wiki/RealClearPolitics
+townhall.com,Website,https://en.wikipedia.org/wiki/Townhall
+redstate.com,Website,https://en.wikipedia.org/wiki/RedState
+rawstory.com,Website,https://en.wikipedia.org/wiki/Raw_Story
+mediaite.com,Website,https://en.wikipedia.org/wiki/Mediaite
+talkingpointsmemo.com,Website,https://en.wikipedia.org/wiki/Talking_Points_Memo
+dailykos.com,Website,https://en.wikipedia.org/wiki/Daily_Kos
+oann.com,Website,https://en.wikipedia.org/wiki/One_America_News_Network
+newsmax.com,Website,https://en.wikipedia.org/wiki/Newsmax
+theblaze.com,Website,https://en.wikipedia.org/wiki/TheBlaze
+# Magazines
+time.com,Magazine,https://en.wikipedia.org/wiki/Time_(magazine)
+theatlantic.com,Magazine,https://en.wikipedia.org/wiki/The_Atlantic
+newyorker.com,Magazine,https://en.wikipedia.org/wiki/The_New_Yorker
+economist.com,Magazine,https://en.wikipedia.org/wiki/The_Economist
+newsweek.com,Magazine,https://en.wikipedia.org/wiki/Newsweek
+slate.com,Magazine,https://en.wikipedia.org/wiki/Slate_(magazine)
+salon.com,Magazine,https://en.wikipedia.org/wiki/Salon_(website)
+reason.com,Magazine,https://en.wikipedia.org/wiki/Reason_(magazine)
+nationalreview.com,Magazine,https://en.wikipedia.org/wiki/National_Review
+weeklystandard.com,Magazine,https://en.wikipedia.org/wiki/The_Weekly_Standard
+motherjones.com,Magazine,https://en.wikipedia.org/wiki/Mother_Jones_(magazine)
+thenation.com,Magazine,https://en.wikipedia.org/wiki/The_Nation
+jacobin.com,Magazine,https://en.wikipedia.org/wiki/Jacobin_(magazine)
+currentaffairs.org,Magazine,https://en.wikipedia.org/wiki/Current_Affairs_(magazine)
+theamericanconservative.com,Magazine,https://en.wikipedia.org/wiki/The_American_Conservative
+foreignpolicy.com,Magazine,https://en.wikipedia.org/wiki/Foreign_Policy
+foreignaffairs.com,Magazine,https://en.wikipedia.org/wiki/Foreign_Affairs
+harpers.org,Magazine,https://en.wikipedia.org/wiki/Harper%27s_Magazine
+vanityfair.com,Magazine,https://en.wikipedia.org/wiki/Vanity_Fair_(magazine)
+wired.com,Magazine,https://en.wikipedia.org/wiki/Wired_(magazine)
+rollingstone.com,Magazine,https://en.wikipedia.org/wiki/Rolling_Stone
+# News Agencies / Wire Services
+reuters.com,News Agency,https://en.wikipedia.org/wiki/Reuters
+apnews.com,News Agency,https://en.wikipedia.org/wiki/Associated_Press
+afp.com,News Agency,https://en.wikipedia.org/wiki/Agence_France-Presse
+upi.com,News Agency,https://en.wikipedia.org/wiki/United_Press_International
+xinhuanet.com,News Agency,https://en.wikipedia.org/wiki/Xinhua_News_Agency
+tass.com,News Agency,https://en.wikipedia.org/wiki/TASS
+efe.com,News Agency,https://en.wikipedia.org/wiki/EFE
+ansa.it,News Agency,https://en.wikipedia.org/wiki/ANSA
+# Radio
+npr.org,Radio,https://en.wikipedia.org/wiki/NPR
+bbc.co.uk/radio,Radio,https://en.wikipedia.org/wiki/BBC_Radio
+deutschlandfunk.de,Radio,https://en.wikipedia.org/wiki/Deutschlandfunk
+rfi.fr,Radio,https://en.wikipedia.org/wiki/Radio_France_Internationale
+voanews.com,Radio,https://en.wikipedia.org/wiki/Voice_of_America
+rferl.org,Radio,https://en.wikipedia.org/wiki/Radio_Free_Europe/Radio_Liberty
+# Investigative / Nonprofit
+propublica.org,Website,https://en.wikipedia.org/wiki/ProPublica
+icij.org,Website,https://en.wikipedia.org/wiki/International_Consortium_of_Investigative_Journalists
+bellingcat.com,Website,https://en.wikipedia.org/wiki/Bellingcat
+revealnews.org,Website,https://en.wikipedia.org/wiki/Reveal_(radio_program)

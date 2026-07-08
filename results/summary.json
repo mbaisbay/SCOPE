@@ -1,0 +1,107 @@
+{
+  "model": "gpt-5-mini-2025-08-07",
+  "snapshot_utc": "2026-05-14T19:11:34.780864+00:00",
+  "n_total": 250,
+  "n_cached": 200,
+  "strict_win": false,
+  "agg_alt": {
+    "llm": {
+      "N": 250,
+      "factscore_precision": 0.4797152,
+      "factscore_recall": 0.2635132,
+      "error_rate": 0.5202848,
+      "meteor": 0.23536680000000001,
+      "rougeL": 0.128724,
+      "bias_mae": 1.116,
+      "fact_mae": 0.84,
+      "fc_det": 0.8733333333333333,
+      "fc_n": 150
+    },
+    "articles": {
+      "N": 250,
+      "factscore_precision": 0.4147004,
+      "factscore_recall": 0.299882,
+      "error_rate": 0.5812996,
+      "meteor": 0.2360472,
+      "rougeL": 0.1239808,
+      "bias_mae": 0.904,
+      "fact_mae": 1.088,
+      "fc_det": 0.9533333333333334,
+      "fc_n": 150
+    },
+    "search": {
+      "N": 250,
+      "factscore_precision": 0.3781088,
+      "factscore_recall": 0.3645488,
+      "error_rate": 0.6218912,
+      "meteor": 0.2617088,
+      "rougeL": 0.1288852,
+      "bias_mae": 0.896,
+      "fact_mae": 1.024,
+      "fc_det": 0.9666666666666667,
+      "fc_n": 150
+    },
+    "system": {
+      "N": 250,
+      "factscore_precision": 0.45407,
+      "factscore_recall": 0.33066,
+      "error_rate": 0.54593,
+      "meteor": 0.2169076,
+      "rougeL": 0.161774,
+      "bias_mae": 0.724,
+      "fact_mae": 0.776,
+      "fc_det": 1.0,
+      "fc_n": 150
+    }
+  },
+  "agg": {
+    "llm": {
+      "N": 200,
+      "factscore_precision": 0.471421,
+      "factscore_recall": 0.259487,
+      "error_rate": 0.528579,
+      "meteor": 0.233672,
+      "rougeL": 0.128369,
+      "bias_mae": 1.17,
+      "fact_mae": 0.865,
+      "fc_det": 0.8617886178861789,
+      "fc_n": 123
+    },
+    "articles": {
+      "N": 200,
+      "factscore_precision": 0.4148435,
+      "factscore_recall": 0.29749,
+      "error_rate": 0.5801565,
+      "meteor": 0.236005,
+      "rougeL": 0.1235765,
+      "bias_mae": 0.885,
+      "fact_mae": 1.125,
+      "fc_det": 0.943089430894309,
+      "fc_n": 123
+    },
+    "search": {
+      "N": 200,
+      "factscore_precision": 0.3777035,
+      "factscore_recall": 0.3601685,
+      "error_rate": 0.6222965,
+      "meteor": 0.26178,
+      "rougeL": 0.1289985,
+      "bias_mae": 0.92,
+      "fact_mae": 1.105,
+      "fc_det": 0.959349593495935,
+      "fc_n": 123
+    },
+    "system": {
+      "N": 200,
+      "factscore_precision": 0.481416,
+      "factscore_recall": 0.347648,
+      "error_rate": 0.518584,
+      "meteor": 0.220144,
+      "rougeL": 0.163507,
+      "bias_mae": 0.65,
+      "fact_mae": 0.665,
+      "fc_det": 1.0,
+      "fc_n": 123
+    }
+  }
+}
