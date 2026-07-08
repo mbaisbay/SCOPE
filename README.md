@@ -18,6 +18,8 @@ article-only, search-only, and media-background-check baselines on most metrics
 — achieving the lowest bias and factuality MAE, perfect failed-fact-check
 detection, and the lowest factual error rate, at roughly **$0.054 per outlet**.
 
+All the figures, tables, and results will be released later with the paper, the link will be added here.
+
 ---
 
 ## Quick start
@@ -119,12 +121,10 @@ social axes follow a two-axis political-science framework (Eysenck, 1954;
 Bobbio, 1996): a 153-item editorial-stance questionnaire is distilled into the
 scoring prompt.
 
-**Factual reliability** is assessed separately, then blended with a
-deterministic research-keyword signal:
+**Factual reliability** is assessed separately:
 
 ```
 F        = 0.40·C + 0.25·R + 0.25·T + 0.10·M
-F_final  = 0.60·F + 0.40·F_research
 ```
 
 where *C* is failed fact checks, *R* sourcing quality, *T* transparency, and *M*
@@ -232,6 +232,4 @@ Released under the [Apache License 2.0](LICENSE).
 
 ## Citation
 
-This system accompanies the paper *SCOPE: Source Credibility and Outlet
-Profiling Engine* (EMNLP System Demonstrations). Please cite it if you use this
-work. <!-- add BibTeX / CITATION.cff once the camera-ready reference is final -->
+Citation details will be added later.
